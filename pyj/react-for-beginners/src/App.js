@@ -3,9 +3,17 @@ import styles from "./App.module.css";
 import { useState, useEffect } from "react";
 
 function Hello() {
+	// 방법 1 -> 더 많이 사용 
 	useEffect(() => {
-		console.log("created :)");
-		return () => console.log("destroyed :(");
+		console.log("hi :)");
+		return () => console.log('')
+	}, []);
+	// 방법 2
+	useEffect(function() {
+		console.log("hi :)");
+		return function() {
+			console.log("bye :(" );
+		}
 	}, []);
 	return <h1>Hello</h1>
 }
