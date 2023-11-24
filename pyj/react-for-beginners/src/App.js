@@ -9,9 +9,17 @@ function App() {
   const onChange = (event) => setKeyword(event.target.value);
   console.log('I run all the time');
   useEffect(() => {
-    console.log('CALL THE API');
+    console.log('I run only once.');
   }, []);
-  console.log("search for", keyword);
+  useEffect(() => {
+      console.log("I run when 'keyword' changes.");
+  }, [keyword]); 
+  useEffect(() => {
+      console.log("I run when 'counter' changes.");
+  }, [counter]);
+  useEffect(() => {
+    console.log("I run when keyword & counter changes");
+  }, [keyword, counter]);
   return (
     <div>
       <input value={keyword} onChange={onChange} type="text" placeholder="Search here..." />
